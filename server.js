@@ -12,11 +12,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// TapTap 配置
+// TapTap 配置（从环境变量读取）
 const TAP_CONFIG = {
-    clientId: 'csg5qlajcgr157ix01',
-    clientToken: 'bvDH35Gw2SCcgkmNFrmQxLi0xaMylxLXEB6VNMUK',
-    redirectUri: 'https://your-domain.com/taptap-callback.html', // 部署后需要修改
+    clientId: process.env.CLIENT_ID || 'csg5qlajcgr157ix01',
+    clientToken: process.env.CLIENT_TOKEN || 'bvDH35Gw2SCcgkmNFrmQxLi0xaMylxLXEB6VNMUK',
+    redirectUri: process.env.REDIRECT_URI || 'https://xianxia-auth-server-production.up.railway.app/taptap-callback.html',
     authUrl: 'https://accounts.taptap.com/oauth2/v1/authorize',
     tokenUrl: 'https://accounts.taptap.com/oauth2/v1/token',
     userInfoUrl: 'https://open.tapapis.cn/account/profile/v1'
